@@ -28,10 +28,10 @@ const ProductsByCatScreen = ({categorySelected}) => {
     <>
     <Header title={'Detalles del Producto'}/>
     <SearchInput onSearchHandlerEvent={onSearch}/>
-    <View>
+    {/* <View>
       <Text>ProductsByCatScreen{categorySelected}</Text>
       <Text>Los Productos de eseta categoría son: {productsByCategory.map(item => item.title)}</Text>
-    </View>
+    </View> */}
     <FlatList
       data={productsByCategory}
       renderItem={renderProductItem}
