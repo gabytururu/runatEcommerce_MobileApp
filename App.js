@@ -2,7 +2,6 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import {useFonts} from 'expo-font'
 import { colors } from './global/colors';
-import Header from './components/Header'
 import CategoriesScreen from './Screens/CategoriesScreen'
 import ProductsByCatScreen from './Screens/ProductsByCatScreen'
 import {useState} from 'react'
@@ -29,9 +28,7 @@ export default function App() {
       <ProductsByCatScreen categorySelected = {categorySelected}/>
       :
       <CategoriesScreen  onSelectCategoryEvent = {onSelectCategory}/>      
-    }
-   
-    
+    } 
     </>
   );
 }
