@@ -26,7 +26,7 @@ const ProductsByCatScreen = ({categorySelected}) => {
 
   return (
     <>
-    <Header title={'Detalles del Producto'}/>
+    <Header title={`${categorySelected}`}/>
     <SearchInput onSearchHandlerEvent={onSearch}/>
     <FlatList
       data={productsByCategory}

@@ -4,6 +4,7 @@ import { colors } from '../global/colors'
 
 
 const Header = ({title}) => {
+  
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}>{title}</Text>
@@ -30,5 +31,6 @@ const styles = StyleSheet.create({
     color: colors.clear,
     fontFamily: 'MeowScript',
     fontSize: 35,
+    textTransform: 'capitalize'
   }
 })

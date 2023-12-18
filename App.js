@@ -12,6 +12,13 @@ export default function App() {
   const onSelectCategory = (category) =>{
     setCategorySelected(category)
   }
+
+  const [productId, setProductId] = useState(null)
+  console.log('El product Id Selected fue -->', productId)
+  const onSelectProductId = (productId) =>{
+    setProductId(productId)
+  }
+
   const [fontLoaded] = useFonts({
     'MeowScript': require('./assets/fonts/MeowScript-Regular.ttf'),
     'Poppins-Light': require('./assets/fonts/Poppins-Light.ttf'),
@@ -24,6 +31,7 @@ export default function App() {
                         </View>
   return (
      <>
+     
     {categorySelected? 
       <ProductsByCatScreen categorySelected = {categorySelected}/>
       :
