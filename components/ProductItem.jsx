@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Card from '../components/Card'
 import { colors } from '../global/colors'
 
-const ProductItem = ({product}) => {
+const ProductItem = ({product, onSelectProductIdEvent}) => {
   return (
+    <TouchableOpacity onPress={()=>onSelectProductIdEvent(product.id)}>
     <Card style={styles.productCard}>
       <Image
         style={styles.productImage}
@@ -17,6 +18,7 @@ const ProductItem = ({product}) => {
         <Text style={styles.productPrice}>Precio: ${product.price} MXN</Text>
       </View>
     </Card>
+    </TouchableOpacity>
    
   )
 }

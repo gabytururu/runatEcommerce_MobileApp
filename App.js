@@ -5,6 +5,7 @@ import { colors } from './global/colors';
 import CategoriesScreen from './Screens/CategoriesScreen'
 import ProductsByCatScreen from './Screens/ProductsByCatScreen'
 import {useState} from 'react'
+import ProductDetailScreen from './Screens/ProductDetailScreen';
 
 export default function App() {
   const [categorySelected, setCategorySelected] = useState('')
@@ -13,11 +14,12 @@ export default function App() {
     setCategorySelected(category)
   }
 
-  const [productId, setProductId] = useState(null)
-  console.log('El product Id Selected fue -->', productId)
+  const [productIdSelected, setProductIdSelected] = useState(null)
+  
   const onSelectProductId = (productId) =>{
-    setProductId(productId)
+    setProductIdSelected(productId)
   }
+  console.log('el id selected FUERA DE FUNCION fue-->',productIdSelected)
 
   const [fontLoaded] = useFonts({
     'MeowScript': require('./assets/fonts/MeowScript-Regular.ttf'),
@@ -25,17 +27,21 @@ export default function App() {
     'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
     'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf')
   })
+
   if(!fontLoaded) return <View style={styles.spinnerContainer}>
                           <ActivityIndicator style={styles.fontLoadSpinner} size={'large'} />
                           <Text style={styles.fontLoadText}>Cargando Fonts...</Text>    
                         </View>
   return (
      <>
-     
-    {categorySelected? 
-      <ProductsByCatScreen categorySelected = {categorySelected}/>
-      :
-      <CategoriesScreen  onSelectCategoryEvent = {onSelectCategory}/>      
+
+    { productIdSelected?
+      <ProductDetailScreen productIdSelected = {productIdSelected}/>
+        :
+      categorySelected? 
+        <ProductsByCatScreen categorySelected = {categorySelected} onSelectProductIdEvent={onSelectProductId}/>
+        :
+        <CategoriesScreen  onSelectCategoryEvent = {onSelectCategory}/>      
     } 
     </>
   );

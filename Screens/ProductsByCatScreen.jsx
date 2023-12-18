@@ -6,7 +6,7 @@ import products_data from '../data/products_data.json'
 import SearchInput from '../components/SearchInput'
 import ProductItem from '../components/ProductItem'
 
-const ProductsByCatScreen = ({categorySelected}) => {
+const ProductsByCatScreen = ({categorySelected, onSelectProductIdEvent}) => {
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
   useEffect(()=>{
@@ -21,7 +21,7 @@ const ProductsByCatScreen = ({categorySelected}) => {
   }
 
   const renderProductItem =({item}) =>(
-    <ProductItem product={item}/>
+    <ProductItem product={item} onSelectProductIdEvent={onSelectProductIdEvent}/>
   )
 
   return (
