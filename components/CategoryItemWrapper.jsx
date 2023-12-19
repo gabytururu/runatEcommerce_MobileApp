@@ -3,9 +3,10 @@ import React from 'react'
 import Card from './Card'
 import { colors } from '../global/colors'
 
-const CategoryItemWrapper = ({category, onSelectCategoryEvent}) => {
+//const CategoryItemWrapper = ({category, onSelectCategoryEvent}) => {
+const CategoryItemWrapper = ({category, navigation}) => {
   return (
-    <TouchableOpacity onPress={()=>onSelectCategoryEvent(category)}>
+    <TouchableOpacity onPress={()=>navigation.navigate('productsByCategory',{category})}>
       <Card style={styles.cardContainer}>
        <Text style={styles.cardChildText}>{category}</Text>
       </Card>

@@ -3,9 +3,11 @@ import React from 'react'
 import Card from '../components/Card'
 import { colors } from '../global/colors'
 
-const ProductItem = ({product, onSelectProductIdEvent}) => {
+//const ProductItem = ({product, onSelectProductIdEvent}) => {
+const ProductItem = ({product, navigation}) => {
   return (
-    <TouchableOpacity onPress={()=>onSelectProductIdEvent(product.id)}>
+    //<TouchableOpacity onPress={()=>onSelectProductIdEvent(product.id)}>
+    <TouchableOpacity onPress={()=>navigation.navigate('productDetails', product.id)}>
     <Card style={styles.productCard}>
       <Image
         style={styles.productImage}

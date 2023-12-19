@@ -5,17 +5,19 @@ import {useState, useEffect} from 'react'
 import { colors } from '../global/colors'
 import Header from '../components/Header'
 
-const ProductDetailScreen = ({productIdSelected}) => {
+//const ProductDetailScreen = ({productIdSelected}) => {
+const ProductDetailScreen = ({route}) => {
 
   const [productSelected, setProductSelected] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const productId = route.params
   useEffect(()=>{
-    const productChosenFound = products_data.find(prod => prod.id === productIdSelected)
+    const productChosenFound = products_data.find(prod => prod.id === productId)
     console.log('el chosen product fue-->',productChosenFound)
     setProductSelected(productChosenFound)
     console.log('el chosen product SETEADO FUE -->', productSelected)
     setIsLoading(false)
-  },[productIdSelected])
+  },[productId])
 
   return (
     <>
@@ -23,7 +25,7 @@ const ProductDetailScreen = ({productIdSelected}) => {
         <ActivityIndicator/>
         :
         <>
-          <Header title={`${productSelected.title}`}/>
+          {/* <Header title={`${productSelected.title}`}/> */}
           <ScrollView style={styles.productDetailsContainer}>  
               <View style={styles.imageContainer}>   
               <Image

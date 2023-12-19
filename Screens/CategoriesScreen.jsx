@@ -4,27 +4,28 @@ import categories_data from '../data/categories_data.json'
 import CategoryItemWrapper from '../components/CategoryItemWrapper'
 import { colors } from '../global/colors'
 
-const CategoriesScreen = ({onSelectCategoryEvent}) => {
+//const CategoriesScreen = ({onSelectCategoryEvent}) => {
+const CategoriesScreen = ({navigation}) => {
 
   const renderCategoryItem = ({item}) => (
     <CategoryItemWrapper
       category={item}
-      onSelectCategoryEvent={onSelectCategoryEvent}
+      // onSelectCategoryEvent={onSelectCategoryEvent}
+      navigation={navigation}
     />
   )
 
   return (
     <>
-      <Header title="Categorías de Producto"/>
+      {/* <Header title="Categorías de Producto"/> */}
       <View style={styles.flatListContainer}>
-      <FlatList
-        data={categories_data}
-        renderItem={renderCategoryItem}
-        keyExtractor={item=>item}
-        numColumns={2} 
-        // contentContainerStyle={styles.contentContainer}
-      />
-
+        <FlatList
+          data={categories_data}
+          renderItem={renderCategoryItem}
+          keyExtractor={item=>item}
+          numColumns={2} 
+          // contentContainerStyle={styles.contentContainer}
+        />
       </View>
      
     </>

@@ -6,27 +6,33 @@ import products_data from '../data/products_data.json'
 import SearchInput from '../components/SearchInput'
 import ProductItem from '../components/ProductItem'
 
-const ProductsByCatScreen = ({categorySelected, onSelectProductIdEvent}) => {
+//const ProductsByCatScreen = ({categorySelected, onSelectProductIdEvent}) => {
+const ProductsByCatScreen = ({navigation, route}) => {
   const [productsByCategory, setProductsByCategory] = useState([])
   const [search, setSearch] = useState('')
+  const {category}  = route.params
+  console.log('route-->', route)
+  console.log('route.params-->', route.params)
+
   useEffect(()=>{
-    const productsFilteredByCategory = products_data.filter(prod => prod.category === categorySelected)
+    const productsFilteredByCategory = products_data.filter(prod => prod.category === category)
     console.log('los products by Category-->', productsFilteredByCategory )
     const productsFilteredSearch = productsFilteredByCategory.filter(prod => prod.title.toLowerCase().includes(search.toLowerCase()))
     setProductsByCategory(productsFilteredSearch)
-  },[categorySelected, search])
+  },[category, search])
 
   const onSearch=(search)=>{
     setSearch(search)
   }
 
   const renderProductItem =({item}) =>(
-    <ProductItem product={item} onSelectProductIdEvent={onSelectProductIdEvent}/>
+    // <ProductItem product={item} onSelectProductIdEvent={onSelectProductIdEvent}/>
+    <ProductItem product={item} navigation={navigation}/>
   )
 
   return (
     <>
-    <Header title={`${categorySelected}`}/>
+    {/* <Header title={`${categorySelected}`}/> */}
     <SearchInput onSearchHandlerEvent={onSearch}/>
     <FlatList
       data={productsByCategory}

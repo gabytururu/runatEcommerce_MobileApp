@@ -1,21 +1,39 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { colors } from '../global/colors'
+import { AntDesign, Entypo } from '@expo/vector-icons'; 
 
 
-const Header = ({title}) => {
-  
+const Header = ({title, navigation}) => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerText}>{title}</Text>
+      <View style={styles.headerTextContainer}>
+        <Text style={styles.headerText}>{title}</Text>
+      </View>
+      <View style={styles.navButtonsContainer}>
+        <TouchableOpacity onPress={navigation.goBack} style={styles.navButton}>
+          <AntDesign name="caretleft" size={20} color= "white"/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigation.popToTop} style={styles.navButton}>
+          <Entypo name="home" size={20} color= "white"/>
+        </TouchableOpacity>
+      </View>    
     </View>
   )
+  
+  // return (
+  //   <View style={styles.headerContainer}>
+  //     <Text style={styles.headerText}>{title}</Text>
+  //   </View>
+  // )
 }
 
 export default Header
 
 const styles = StyleSheet.create({
   headerContainer:{
+    flexDirection: 'row-reverse',
+   
     height: 100,
     backgroundColor: colors.dark,
     borderBottomColor: colors.secondary,
@@ -23,14 +41,25 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems:'center',
     justifyContent: 'center',
-  
     },
-
-  headerText:{
-    flex:0.5,
+  headerTextContainer:{
+    width: '70%',
+    // backgroundColor:'red'
+  },
+  headerText:{    
+    textAlign: 'right',
     color: colors.clear,
+    color: 'white',
     fontFamily: 'MeowScript',
     fontSize: 35,
     textTransform: 'capitalize'
+  },
+  navButtonsContainer:{
+    flexDirection:'row',
+    justifyContent: 'space-evenly',
+    // backgroundColor: colors.lightYellow    
+  },
+  navButton:{
+    padding:10
   }
 })

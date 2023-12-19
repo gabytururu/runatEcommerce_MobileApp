@@ -6,6 +6,7 @@ import CategoriesScreen from './Screens/CategoriesScreen'
 import ProductsByCatScreen from './Screens/ProductsByCatScreen'
 import {useState} from 'react'
 import ProductDetailScreen from './Screens/ProductDetailScreen';
+import Navigator from './navigation/Navigator';
 
 export default function App() {
   const [categorySelected, setCategorySelected] = useState('')
@@ -34,15 +35,16 @@ export default function App() {
                         </View>
   return (
      <>
+     <Navigator/>
 
-    { productIdSelected?
+    {/* { productIdSelected?
       <ProductDetailScreen productIdSelected = {productIdSelected}/>
         :
       categorySelected? 
         <ProductsByCatScreen categorySelected = {categorySelected} onSelectProductIdEvent={onSelectProductId}/>
         :
         <CategoriesScreen  onSelectCategoryEvent = {onSelectCategory}/>      
-    } 
+    }  */}
     </>
   );
 }
