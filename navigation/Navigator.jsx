@@ -19,21 +19,31 @@ const Navigator = () => {
             initialRouteName='categories'
             screenOptions={
                 ({navigation,route}) =>({
-                    header: () => <Header title={route.name} navigation={navigation}/>
+                    //header: () =>  <Header title={route.name} navigation={navigation}/>
+                    header: () => {
+                        const title = route.options?.title || route.name
+                        return <Header title={title} navigation={navigation}/>
+                    } 
                 })
             }
         >            
             <Stack.Screen
                 name='categories'
                 component={CategoriesScreen}
+                // options={{title: 'Categorías'}}
+                // initialParams={{screenTitle: 'Categorías'}}
             />
             <Stack.Screen
                 name='productsByCategory'
                 component={ProductsByCatScreen}
+                options={{title: 'Productos'}}
+                // initialParams={{screenTitle: 'Productos'}}
             />
             <Stack.Screen
                 name='productDetails'
                 component={ProductDetailScreen}
+                options={{title: 'Detalles del Producto'}}
+            //    initialParams={{screenTitle: 'Tu Producto'}}
             />
         </Stack.Navigator>
     </NavigationContainer>
