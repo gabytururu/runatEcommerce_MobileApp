@@ -20,12 +20,6 @@ const Header = ({title, navigation}) => {
       </View>    
     </View>
   )
-  
-  // return (
-  //   <View style={styles.headerContainer}>
-  //     <Text style={styles.headerText}>{title}</Text>
-  //   </View>
-  // )
 }
 
 export default Header
@@ -44,7 +38,6 @@ const styles = StyleSheet.create({
     },
   headerTextContainer:{
     width: '70%',
-    // backgroundColor:'red'
   },
   headerText:{    
     textAlign: 'right',
@@ -57,7 +50,6 @@ const styles = StyleSheet.create({
   navButtonsContainer:{
     flexDirection:'row',
     justifyContent: 'space-evenly',
-    // backgroundColor: colors.lightYellow    
   },
   navButton:{
     padding:10

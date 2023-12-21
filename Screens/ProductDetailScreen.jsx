@@ -3,9 +3,7 @@ import React from 'react'
 import products_data from '../data/products_data.json'
 import {useState, useEffect} from 'react'
 import { colors } from '../global/colors'
-import Header from '../components/Header'
 
-//const ProductDetailScreen = ({productIdSelected}) => {
 const ProductDetailScreen = ({route}) => {
 
   const [productSelected, setProductSelected] = useState(null)
@@ -25,7 +23,6 @@ const ProductDetailScreen = ({route}) => {
         <ActivityIndicator/>
         :
         <>
-          {/* <Header title={`${productSelected.title}`}/> */}
           <ScrollView style={styles.productDetailsContainer}>  
               <View style={styles.imageContainer}>   
               <Image
@@ -41,8 +38,7 @@ const ProductDetailScreen = ({route}) => {
                 <TouchableOpacity>
                   <Text style={styles.buyButtonPortrait}>Comprar</Text>
                 </TouchableOpacity>
-              </View>
-          
+              </View>          
           </ScrollView>
         </>
       }
