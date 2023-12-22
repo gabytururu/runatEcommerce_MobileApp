@@ -6,7 +6,8 @@ import CategoriesScreen from './Screens/CategoriesScreen'
 import ProductsByCatScreen from './Screens/ProductsByCatScreen'
 import {useState} from 'react'
 import ProductDetailScreen from './Screens/ProductDetailScreen';
-import Navigator from './navigation/Navigator';
+// import Navigator from './navigation/Navigator';
+import TabNavigator from './navigation/TabNavigator';
 
 export default function App() {
   const [categorySelected, setCategorySelected] = useState('')
@@ -35,7 +36,7 @@ export default function App() {
                         </View>
   return (
      <>
-     <Navigator/>
+     <TabNavigator/>
 
     {/* { productIdSelected?
       <ProductDetailScreen productIdSelected = {productIdSelected}/>
