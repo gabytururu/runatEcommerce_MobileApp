@@ -9,6 +9,8 @@ export const  colors = {
     lightYellow: '#F8FFE5',
     callToActionA: '#ffe66d',
     callToActionB: '#ff6b6b',
+    lightPink: '#FEECFB' 
+   
 }
 
 

@@ -3,8 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ShopNavigator from "./ShopNavigator";
 import CartNavigator from "./CartNavigator";
+import OrdersNavigator from "./OrdersNavigator";
 import { colors } from "../global/colors";
 import { Entypo } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 
@@ -33,6 +35,15 @@ const TabNavigator = () => {
                     options={{
                         tabBarIcon: ({focused}) =>(
                             <Entypo name="shopping-cart" size={24} color={focused? colors.primary : colors.mintSoft}/>
+                        )
+                    }}
+                />
+                <Tab.Screen
+                    name="OrdersStack"
+                    component={OrdersNavigator}
+                    options={{
+                        tabBarIcon: ({focused}) =>(
+                            <Octicons name="list-unordered" size={24} color={focused? colors.primary : colors.mintSoft}/>
                         )
                     }}
                 />
