@@ -17,7 +17,7 @@ const CartNavigator = () => {
         }
     >
         <Stack.Screen
-            name="Carrito"
+            name="carrito"
             component={CartScreen}
             options={{title: "Mi Carrito"}}
         />

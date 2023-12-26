@@ -4,6 +4,7 @@ import cart_data from '../data/cart_data.json'
 import CartItem from '../components/CartItem'
 import {useState, useEffect} from 'react'
 import { colors } from '../global/colors'
+
 const CartScreen = () => {
   const [cartTotal, setCartTotal] = useState(0)
   useEffect (()=>{
@@ -13,8 +14,10 @@ const CartScreen = () => {
     setCartTotal(cartTotalAmount)
   },[])
 
-  renderCartItem = ({item}) =>(
-    <CartItem item={item}/>
+  const renderCartItem = ({item}) =>(
+    <CartItem 
+      item={item} 
+    />
   )
     
   

@@ -5,7 +5,6 @@ import { AntDesign, Entypo } from '@expo/vector-icons';
 
 
 const Header = ({title, navigation}) => {
-  // por qué el canGoBack no opera bien cuando movemos al Cart si se ocupa el mismo header y por tanto la misma lógica?
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerTextContainer}>

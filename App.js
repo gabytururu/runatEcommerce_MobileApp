@@ -2,28 +2,11 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import {useFonts} from 'expo-font'
 import { colors } from './global/colors';
-import CategoriesScreen from './Screens/CategoriesScreen'
-import ProductsByCatScreen from './Screens/ProductsByCatScreen'
-import {useState} from 'react'
-import ProductDetailScreen from './Screens/ProductDetailScreen';
-// import Navigator from './navigation/Navigator';
 import TabNavigator from './navigation/TabNavigator';
 import {Provider} from 'react-redux'
 import store from './store/store'
 
 export default function App() {
-  const [categorySelected, setCategorySelected] = useState('')
-  console.log('la categoría desde el useState fuera de funcion es-->', categorySelected)
-  const onSelectCategory = (category) =>{
-    setCategorySelected(category)
-  }
-
-  const [productIdSelected, setProductIdSelected] = useState(null)
-  
-  const onSelectProductId = (productId) =>{
-    setProductIdSelected(productId)
-  }
-  console.log('el id selected FUERA DE FUNCION fue-->',productIdSelected)
 
   const [fontLoaded] = useFonts({
     'MeowScript': require('./assets/fonts/MeowScript-Regular.ttf'),
@@ -37,20 +20,9 @@ export default function App() {
                           <Text style={styles.fontLoadText}>Cargando Fonts...</Text>    
                         </View>
   return (
-     <>
-     <Provider store={store}>
+    <Provider store={store}>
       <TabNavigator/>
-     </Provider>
-
-    {/* { productIdSelected?
-      <ProductDetailScreen productIdSelected = {productIdSelected}/>
-        :
-      categorySelected? 
-        <ProductsByCatScreen categorySelected = {categorySelected} onSelectProductIdEvent={onSelectProductId}/>
-        :
-        <CategoriesScreen  onSelectCategoryEvent = {onSelectCategory}/>      
-    }  */}
-    </>
+    </Provider>
   );
 }
 
