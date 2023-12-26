@@ -8,6 +8,8 @@ import {useState} from 'react'
 import ProductDetailScreen from './Screens/ProductDetailScreen';
 // import Navigator from './navigation/Navigator';
 import TabNavigator from './navigation/TabNavigator';
+import {Provider} from 'react-redux'
+import store from './store/store'
 
 export default function App() {
   const [categorySelected, setCategorySelected] = useState('')
@@ -36,7 +38,9 @@ export default function App() {
                         </View>
   return (
      <>
-     <TabNavigator/>
+     <Provider store={store}>
+      <TabNavigator/>
+     </Provider>
 
     {/* { productIdSelected?
       <ProductDetailScreen productIdSelected = {productIdSelected}/>
